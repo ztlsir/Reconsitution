@@ -4,9 +4,9 @@ namespace Reconsitution.Start
 {
     class Movice
     {
-        public static readonly int CHILDRENS = 2;
-        public static readonly int REGULAR = 0;
-        public static readonly int NEW_RELEASE = 1;
+        public const int CHILDRENS = 2;
+        public const int REGULAR = 0;
+        public const int NEW_RELEASE = 1;
 
         public string Title { get; }
         public int PriceCode { get; set; }

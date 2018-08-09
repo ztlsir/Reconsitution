@@ -4,8 +4,8 @@ namespace Reconsitution.Start
 {
     class Rental
     {
-        private Movice Movice { get; }
-        private int DaysRented { get; }
+        public Movice Movice { get; }
+        public int DaysRented { get; }
 
         public Rental(Movice movice, int daysRented)
         {
