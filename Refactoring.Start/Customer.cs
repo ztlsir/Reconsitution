@@ -28,7 +28,7 @@ namespace Refactoring.Start
             foreach (Rental each in Rentals)
             {
                 double thisAmount = 0;
-                
+
                 thisAmount = AmountFor(each);
 
                 //add frequent renter points
@@ -47,28 +47,28 @@ namespace Refactoring.Start
             return result;
         }
 
-        private static double AmountFor(Rental each)
+        private static double AmountFor(Rental aRental)
         {
-            double thisAmount=0;
+            double result = 0;
             //determine amounts for each line
-            switch (each.Movice.PriceCode)
+            switch (aRental.Movice.PriceCode)
             {
                 case Movie.REGULAR:
-                    thisAmount += 2;
-                    if (each.DaysRented > 2)
-                        thisAmount += (each.DaysRented - 2) * 1.5;
+                    result += 2;
+                    if (aRental.DaysRented > 2)
+                        result += (aRental.DaysRented - 2) * 1.5;
                     break;
                 case Movie.NEW_RELEASE:
-                    thisAmount += each.DaysRented * 3;
+                    result += aRental.DaysRented * 3;
                     break;
                 case Movie.CHILDRENS:
-                    thisAmount += 1.5;
-                    if (each.DaysRented > 3)
-                        thisAmount += (each.DaysRented - 3) * 1.5;
+                    result += 1.5;
+                    if (aRental.DaysRented > 3)
+                        result += (aRental.DaysRented - 3) * 1.5;
                     break;
             }
 
-            return thisAmount;
+            return result;
         }
     }
 }
