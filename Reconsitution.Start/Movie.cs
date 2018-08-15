@@ -2,7 +2,7 @@ using System;
 
 namespace Reconsitution.Start
 {
-    class Movice
+    public class Movie
     {
         public const int CHILDRENS = 2;
         public const int REGULAR = 0;
@@ -11,7 +11,7 @@ namespace Reconsitution.Start
         public string Title { get; }
         public int PriceCode { get; set; }
 
-        public Movice(string title, int priceCode)
+        public Movie(string title, int priceCode)
         {
             this.Title = title;
             this.PriceCode = priceCode;

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Reconsitution.Start
 {
-    class Customer
+    public class Customer
     {
         public string Name { get; }
         private ArrayList Rentals = ArrayList.Synchronized(new ArrayList());
@@ -32,15 +32,15 @@ namespace Reconsitution.Start
                 //determine amounts for each line
                 switch (each.Movice.PriceCode)
                 {
-                    case Movice.REGULAR:
+                    case Movie.REGULAR:
                         thisAmount += 2;
                         if (each.DaysRented > 2)
                             thisAmount += (each.DaysRented - 2) * 1.5;
                         break;
-                    case Movice.NEW_RELEASE:
+                    case Movie.NEW_RELEASE:
                         thisAmount += each.DaysRented * 3;
                         break;
-                    case Movice.CHILDRENS:
+                    case Movie.CHILDRENS:
                         thisAmount += 1.5;
                         if (each.DaysRented > 3)
                             thisAmount += (each.DaysRented - 3) * 1.5;
@@ -50,7 +50,7 @@ namespace Reconsitution.Start
                 //add frequent renter points
                 frequentRenterPoints++;
                 //add bonus for a two day new release rental
-                if ((each.Movice.PriceCode == Movice.NEW_RELEASE) &&
+                if ((each.Movice.PriceCode == Movie.NEW_RELEASE) &&
                 each.DaysRented > 1) frequentRenterPoints++;
 
                 //show figures for this rental

@@ -2,12 +2,12 @@ using System;
 
 namespace Reconsitution.Start
 {
-    class Rental
+     public class Rental
     {
-        public Movice Movice { get; }
+        public Movie Movice { get; }
         public int DaysRented { get; }
 
-        public Rental(Movice movice, int daysRented)
+        public Rental(Movie movice, int daysRented)
         {
             this.Movice = movice;
             this.DaysRented = daysRented;
