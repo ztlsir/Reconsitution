@@ -28,24 +28,8 @@ namespace Refactoring.Start
             foreach (Rental each in Rentals)
             {
                 double thisAmount = 0;
-
-                //determine amounts for each line
-                switch (each.Movice.PriceCode)
-                {
-                    case Movie.REGULAR:
-                        thisAmount += 2;
-                        if (each.DaysRented > 2)
-                            thisAmount += (each.DaysRented - 2) * 1.5;
-                        break;
-                    case Movie.NEW_RELEASE:
-                        thisAmount += each.DaysRented * 3;
-                        break;
-                    case Movie.CHILDRENS:
-                        thisAmount += 1.5;
-                        if (each.DaysRented > 3)
-                            thisAmount += (each.DaysRented - 3) * 1.5;
-                        break;
-                }
+                
+                thisAmount = AmountFor(each);
 
                 //add frequent renter points
                 frequentRenterPoints++;
@@ -61,6 +45,30 @@ namespace Refactoring.Start
             result += "Amount owed is " + totalAmount.ToString() + "\n";
             result += "You earned " + frequentRenterPoints.ToString() + " frequent renter points";
             return result;
+        }
+
+        private static double AmountFor(Rental each)
+        {
+            double thisAmount=0;
+            //determine amounts for each line
+            switch (each.Movice.PriceCode)
+            {
+                case Movie.REGULAR:
+                    thisAmount += 2;
+                    if (each.DaysRented > 2)
+                        thisAmount += (each.DaysRented - 2) * 1.5;
+                    break;
+                case Movie.NEW_RELEASE:
+                    thisAmount += each.DaysRented * 3;
+                    break;
+                case Movie.CHILDRENS:
+                    thisAmount += 1.5;
+                    if (each.DaysRented > 3)
+                        thisAmount += (each.DaysRented - 3) * 1.5;
+                    break;
+            }
+
+            return thisAmount;
         }
     }
 }
