@@ -29,7 +29,7 @@ namespace Refactoring.Start
             {
                 double thisAmount = 0;
 
-                thisAmount = AmountFor(each);
+                thisAmount = each.GetCharge();
 
                 //add frequent renter points
                 frequentRenterPoints++;
@@ -45,11 +45,6 @@ namespace Refactoring.Start
             result += "Amount owed is " + totalAmount.ToString() + "\n";
             result += "You earned " + frequentRenterPoints.ToString() + " frequent renter points";
             return result;
-        }
-
-        private double AmountFor(Rental aRental)
-        {
-            return aRental.GetCharge();
         }
     }
 }
