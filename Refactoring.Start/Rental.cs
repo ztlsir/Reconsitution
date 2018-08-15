@@ -1,6 +1,6 @@
 using System;
 
-namespace Reconstitution.Start
+namespace Refactoring.Start
 {
      public class Rental
     {
