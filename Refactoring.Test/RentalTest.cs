@@ -20,5 +20,18 @@ namespace Refactoring.Test
             Assert.AreEqual(movieType, rental.Movice.PriceCode);
             Assert.AreEqual(daysRented, rental.DaysRented);
         }
+
+        [TestMethod]
+        public void Verify_a_rental_charge()
+        {
+            string movieName = "一出好戏";
+            int movieType = Movie.NEW_RELEASE;
+            Movie movie = new Movie(movieName, movieType);
+            int daysRented = 10;
+
+            var rental = new Rental(movie, daysRented);
+            
+            Assert.AreEqual(30, rental.GetCharge());
+        }
     }
 }

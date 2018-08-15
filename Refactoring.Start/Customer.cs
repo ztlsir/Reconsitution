@@ -47,28 +47,9 @@ namespace Refactoring.Start
             return result;
         }
 
-        private static double AmountFor(Rental aRental)
+        private double AmountFor(Rental aRental)
         {
-            double result = 0;
-            //determine amounts for each line
-            switch (aRental.Movice.PriceCode)
-            {
-                case Movie.REGULAR:
-                    result += 2;
-                    if (aRental.DaysRented > 2)
-                        result += (aRental.DaysRented - 2) * 1.5;
-                    break;
-                case Movie.NEW_RELEASE:
-                    result += aRental.DaysRented * 3;
-                    break;
-                case Movie.CHILDRENS:
-                    result += 1.5;
-                    if (aRental.DaysRented > 3)
-                        result += (aRental.DaysRented - 3) * 1.5;
-                    break;
-            }
-
-            return result;
+            return aRental.GetCharge();
         }
     }
 }
