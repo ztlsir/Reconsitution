@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Reconsitution.Start
+namespace Reconstitution.Start
 {
     class Program
     {

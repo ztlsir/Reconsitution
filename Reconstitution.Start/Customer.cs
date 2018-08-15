@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Reconsitution.Start
+namespace Reconstitution.Start
 {
     public class Customer
     {

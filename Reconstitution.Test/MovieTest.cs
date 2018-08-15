@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Reconsitution.Start;
+using Reconstitution.Start;
 
-namespace Reconsitution.Test
+namespace Reconstitution.Test
 {
     [TestClass]
     public class MovieTest
