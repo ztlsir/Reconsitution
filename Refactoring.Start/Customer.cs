@@ -27,16 +27,14 @@ namespace Refactoring.Start
 
             foreach (Rental each in Rentals)
             {
-                //add frequent renter points
-                frequentRenterPoints++;
-                //add bonus for a two day new release rental
-                if ((each.Movice.PriceCode == Movie.NEW_RELEASE) &&
-                each.DaysRented > 1) frequentRenterPoints++;
+                frequentRenterPoints = each.GetFrequentRenterPoints();
 
                 //show figures for this rental
-                result += "\t" + each.Movice.Title + "\t" + each.GetCharge().ToString() + "\n";
+                result += "\t" + each.Movice.Title + "\t" +
+                 each.GetCharge().ToString() + "\n";
                 totalAmount += each.GetCharge();
             }
+
             //add footer lines
             result += "Amount owed is " + totalAmount.ToString() + "\n";
             result += "You earned " + frequentRenterPoints.ToString() + " frequent renter points";

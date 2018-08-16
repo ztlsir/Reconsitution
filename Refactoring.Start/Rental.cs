@@ -36,5 +36,14 @@ namespace Refactoring.Start
 
             return result;
         }
+
+        public int GetFrequentRenterPoints()
+        {
+            if ((this.Movice.PriceCode == Movie.NEW_RELEASE) &&
+this.DaysRented > 1)
+                return 2;
+            else
+                return 1;
+        }
     }
 }
