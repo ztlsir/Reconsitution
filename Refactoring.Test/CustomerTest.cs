@@ -15,8 +15,10 @@ namespace Refactoring.Test
             int daysRented = 10;
             Rental rental = new Rental(movie, daysRented);
             string customerName = "john";
-            string statementResult=string.Format("Rental Record for {0}\n\t{1}\t{2}\nAmount owed is {3}\nYou earned {4} frequent renter points",
-            customerName,movieName,daysRented*3,daysRented*3,2);
+            string statementResult = string.Format("Rental Record for {0}\n\t{1}\t{2}\nAmount owed is {3}\nYou earned {4} frequent renter points",
+            customerName, movieName, daysRented * 3, daysRented * 3, 2);
+            string htmlStatementResult = string.Format("<H1>Rental Record for <EM>{0}</EM></H1><P>\n{1}:{2}<BR>\n<P>Amount owe <EM>{3}</EM><P>\nOn this rental you earned <EM>{4}</EM> frequent renter points<P>",
+            customerName, movieName, daysRented * 3, daysRented * 3, 2);
 
             Customer customer = new Customer(customerName);
             customer.AddRental(rental);
@@ -27,6 +29,7 @@ namespace Refactoring.Test
             Assert.AreEqual(customerName, customer.Name);
             Assert.IsNotNull(customer.Statement());
             Assert.AreEqual(statementResult, customer.Statement());
+            Assert.AreEqual(htmlStatementResult, customer.HtmlStatement());
         }
     }
 }
