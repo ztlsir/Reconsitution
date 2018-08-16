@@ -6,5 +6,10 @@ namespace Refactoring.Start
         {
             return Movie.NEW_RELEASE;
         }
+
+        public override double GetCharge(int daysRented)
+        {
+            return daysRented * 3;
+        }
     }
 }
