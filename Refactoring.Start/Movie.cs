@@ -9,7 +9,31 @@ namespace Refactoring.Start
         public const int NEW_RELEASE = 1;
 
         public string Title { get; }
-        public int PriceCode { get; set; }
+        private Price price;
+        public int PriceCode
+        {
+            get
+            {
+                return price.GetPriceCode();
+            }
+            set
+            {
+                switch (value)
+                {
+                    case Movie.REGULAR:
+                        price = new RegularPrice();
+                        break;
+                    case Movie.NEW_RELEASE:
+                        price = new NewReleasePrice();
+                        break;
+                    case Movie.CHILDRENS:
+                        price = new ChildrensPrice();
+                        break;
+                    default:
+                        throw new ArgumentException("Incorrect Price Code");
+                }
+            }
+        }
 
         public Movie(string title, int priceCode)
         {
