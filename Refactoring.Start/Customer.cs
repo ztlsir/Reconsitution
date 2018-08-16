@@ -27,10 +27,6 @@ namespace Refactoring.Start
 
             foreach (Rental each in Rentals)
             {
-                double thisAmount = 0;
-
-                thisAmount = each.GetCharge();
-
                 //add frequent renter points
                 frequentRenterPoints++;
                 //add bonus for a two day new release rental
@@ -38,8 +34,8 @@ namespace Refactoring.Start
                 each.DaysRented > 1) frequentRenterPoints++;
 
                 //show figures for this rental
-                result += "\t" + each.Movice.Title + "\t" + thisAmount.ToString() + "\n";
-                totalAmount += thisAmount;
+                result += "\t" + each.Movice.Title + "\t" + each.GetCharge().ToString() + "\n";
+                totalAmount += each.GetCharge();
             }
             //add footer lines
             result += "Amount owed is " + totalAmount.ToString() + "\n";
