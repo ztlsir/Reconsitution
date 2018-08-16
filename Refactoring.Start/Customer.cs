@@ -21,21 +21,19 @@ namespace Refactoring.Start
 
         public string Statement()
         {
-            int frequentRenterPoints = 0;
             string result = "Rental Record for " + this.Name + "\n";
 
             foreach (Rental each in rentals)
             {
-                frequentRenterPoints = each.GetFrequentRenterPoints();
-
                 //show figures for this rental
                 result += "\t" + each.Movice.Title + "\t" +
                  each.GetCharge().ToString() + "\n";
             }
 
             //add footer lines
-            result += "Amount owed is " + this.GetTotalCharge() + "\n";
-            result += "You earned " + frequentRenterPoints.ToString() + " frequent renter points";
+            result += "Amount owed is " + this.GetTotalCharge().ToString() + "\n";
+            result += "You earned " + this.GetTotalFrequentRenterPoints().ToString() +
+             " frequent renter points";
             return result;
         }
 
@@ -45,6 +43,16 @@ namespace Refactoring.Start
             foreach (Rental each in this.rentals)
             {
                 result += each.GetCharge();
+            }
+            return result;
+        }
+
+        private double GetTotalFrequentRenterPoints()
+        {
+            int result = 0;
+            foreach (Rental each in this.rentals)
+            {
+                result += each.GetFrequentRenterPoints();
             }
             return result;
         }
