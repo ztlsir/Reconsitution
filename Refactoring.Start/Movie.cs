@@ -48,10 +48,7 @@ namespace Refactoring.Start
 
         public int GetFrequentRenterPoints(int daysRented)
         {
-            if ((this.PriceCode == Movie.NEW_RELEASE) && daysRented > 1)
-                return 2;
-            else
-                return 1;
+            return this.price.GetFrequentRenterPoints(daysRented);
         }
     }
 }
