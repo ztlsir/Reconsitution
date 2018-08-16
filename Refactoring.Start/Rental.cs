@@ -20,11 +20,7 @@ namespace Refactoring.Start
 
         public int GetFrequentRenterPoints()
         {
-            if ((this.Movice.PriceCode == Movie.NEW_RELEASE) &&
-this.DaysRented > 1)
-                return 2;
-            else
-                return 1;
+            return this.Movice.GetFrequentRenterPoints(this.DaysRented);
         }
     }
 }
